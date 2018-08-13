@@ -16,15 +16,19 @@ import { HomePage } from '../pages/home/home';
 import { AddPlace } from "../pages/add-place/add-place";
 import { PlacePage } from "../pages/placePage/placePage";
 
+import { LogInPage } from "../pages/log-in-page/log-in-page";
+
 import {PlacesService} from "../services/places.service";
 import { SocialSharing } from '@ionic-native/social-sharing';
+
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     AddPlace,
-    PlacePage
+    PlacePage,
+    LogInPage
   ],
   imports: [
     BrowserModule,
@@ -40,7 +44,8 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     MyApp,
     HomePage,
     AddPlace,
-    PlacePage
+    PlacePage,
+    LogInPage
   ],
   providers: [
     StatusBar,
