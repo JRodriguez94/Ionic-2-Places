@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import { ModalController, NavController} from 'ionic-angular';
+import { ModalController, NavController, ToastController} from 'ionic-angular';
+
+import { AngularFireAuth } from "angularfire2/auth";
 
 import {AddPlace} from "../add-place/add-place";
 import { Place } from "../../classes/place";
@@ -17,8 +19,28 @@ export class HomePage implements OnInit{
 
   constructor(public navCtrl: NavController,
               public placesService: PlacesService,
-              public modalCtrl: ModalController) {
+              public modalCtrl: ModalController,
+              private afAuth: AngularFireAuth,
+              private toastCtrl: ToastController) {
 
+  }
+
+  ionViewWillLoad()
+  {
+    this.afAuth.authState.subscribe(data => {
+      if(data.email && data.uid) {
+        this.toastCtrl.create({
+          message: 'Wellcome to Awesome Places, '+data.email,
+          duration: 3000
+        }).present();
+      }
+      else {
+        this.toastCtrl.create({
+          message: 'Something went wrong. There is not authentication details.',
+          duration: 3000
+        }).present();
+      }
+    });
   }
 
   ngOnInit()

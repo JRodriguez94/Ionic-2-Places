@@ -12,7 +12,8 @@ import {LogInPage} from "../pages/log-in-page/log-in-page";
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = HomePage;
+  // rootPage:any = HomePage;
+  rootPage:any = LogInPage;
 
   homePage = HomePage;
   loginPage = LogInPage;

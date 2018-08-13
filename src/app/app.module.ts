@@ -17,10 +17,14 @@ import { AddPlace } from "../pages/add-place/add-place";
 import { PlacePage } from "../pages/placePage/placePage";
 
 import { LogInPage } from "../pages/log-in-page/log-in-page";
+import { RegisterPage } from "../pages/register-page/register-page";
 
 import {PlacesService} from "../services/places.service";
 import { SocialSharing } from '@ionic-native/social-sharing';
 
+import {AngularFireModule} from "angularfire2";
+import { AngularFireAuthModule } from "angularfire2/auth";
+import {FIREBASE_CONFIG} from "./app.firebase.config";
 
 @NgModule({
   declarations: [
@@ -28,7 +32,8 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     HomePage,
     AddPlace,
     PlacePage,
-    LogInPage
+    LogInPage,
+    RegisterPage
   ],
   imports: [
     BrowserModule,
@@ -37,7 +42,9 @@ import { SocialSharing } from '@ionic-native/social-sharing';
       apiKey: 'AIzaSyDvyMriRPJHduX3etCFdonphI4WDhCHs90'
     }),
     Ionic2RatingModule,
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    AngularFireModule.initializeApp(FIREBASE_CONFIG),
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -45,7 +52,8 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     HomePage,
     AddPlace,
     PlacePage,
-    LogInPage
+    LogInPage,
+    RegisterPage
   ],
   providers: [
     StatusBar,
