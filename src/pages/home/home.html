@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title>
+      Places
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngFor="let place of places; let placeId = index"
+    (click)="placeDetails(place, placeId)">
+    <img [src]="place.images[0]">
+    <div class="nameDiv">{{ place.name }}</div>
+    <div class="ratingDiv">
+      <ion-row text-center>
+        <ion-col>
+          <rating name="rating"
+                  [ngModel]="place.rating"
+                  readOnly="true">
+          </rating>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-card>
+  <ion-fab right bottom>
+    <button ion-fab color="dark" (click)="goAddPlaces()" clear>
+      <ion-icon name="ios-umbrella-outline"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

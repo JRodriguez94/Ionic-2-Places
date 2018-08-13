@@ -1,0 +1,63 @@
+<ion-header>
+
+  <ion-navbar color="dark">
+    <ion-title>Place Info</ion-title>
+    <ion-buttons left>
+      <button icon-only ion-button (click)="closePlace()">
+        <ion-icon name="ios-close-circle-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons right>
+      <button icon-only ion-button (click)="sendPlace()">
+        <ion-icon name="ios-share-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>{{ place.name }}</h2>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <agm-map
+          [latitude] = "place.lacation.lat"
+          [longitude] = "place.lacation.long"
+          [zoom] = "10"
+          [streetViewControl]="salse"
+          [disableDefaultUI]="true">
+          <agm-marker
+            [latitude] = "place.lacation.lat"
+            [longitude] = "place.lacation.long">
+          </agm-marker>
+        </agm-map>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-slides>
+          <ion-slide *ngFor="let image of place.images">
+            <img [src]="image">
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+    <ion-row text-center>
+      <ion-col>
+        <rating name="rating"
+                [ngModel]="place.rating"
+                readOnly="true">
+        </rating>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <button
+              ion-button
+              color="danger"
+              clear block
+              (click)="deletePlace()">
+        Delete
+      </button>
+    </ion-row>
+  </ion-grid>
+</ion-content>
