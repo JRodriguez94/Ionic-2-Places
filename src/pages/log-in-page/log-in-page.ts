@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from "ionic-angular";
+import { AlertController } from "ionic-angular";
 
 import {User} from "../../models/user";
 
@@ -30,7 +31,8 @@ export class LogInPage {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              private afAuth: AngularFireAuth) {
+              private afAuth: AngularFireAuth,
+              public alertCtrl: AlertController) {
   }
 
   async logIn(user: User)
@@ -42,7 +44,11 @@ export class LogInPage {
       }
     }
     catch (e) {
-      console.error(e);
+      let alert = this.alertCtrl.create({
+        title: 'Something went wrong. :c',
+        message: 'There was a mistake while we tried to validate your login information' + e
+      })
+      alert.present();
     }
   }
 

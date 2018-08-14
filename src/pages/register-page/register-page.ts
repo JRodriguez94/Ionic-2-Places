@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from "ionic-angular";
+import {AlertController, NavController, NavParams} from "ionic-angular";
 
 import {User} from "../../models/user";
 
@@ -21,7 +21,8 @@ export class RegisterPage {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              private afAuth: AngularFireAuth) {
+              private afAuth: AngularFireAuth,
+              private alertCtrl: AlertController) {
   }
 
   async signUp(user: User)
@@ -29,9 +30,20 @@ export class RegisterPage {
     try {
       const result = await this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password);
       console.log(result);
+      let alert = this.alertCtrl.create({
+        title: 'Awesome!!',
+        message: 'Your user was created!',
+        buttons: ['Ok']
+      })
+      alert.present();
     }
     catch (e) {
-      console.error(e);
+      let alert = this.alertCtrl.create({
+        title: 'Something went wrong. :c',
+        message: e,
+        buttons: ['Ok']
+      })
+      alert.present();
     }
   }
 }
