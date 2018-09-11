@@ -1,3 +1,32 @@
 page-log-in-page {
 
+  .bg
+  {
+    background: teal;
+  }
+  .bg-img
+  {
+    background-image: url('../../assets/imgs/bg2.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    //background-size: contain;
+    background-size: auto;
+    //filter: blur(2px);
+  }
+  .item-bg-none
+  {
+    background: none;
+  }
+  .background-blur-white
+  {
+    background:rgba(255,255,255,0.18);
+  }
+  .background-blur-black
+  {
+    background:rgba(0,0,0,0.18);
+  }
+  .item-font-color
+  {
+    color: aqua;
+  }
 }

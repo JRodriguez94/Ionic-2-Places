@@ -22,25 +22,30 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content class="bg-img">
+  <form #formLogIn="ngForm">
     <ion-row>
       <ion-col>
-        <ion-item>
-          <ion-label floating>Email</ion-label>
+        <ion-item class="item-bg-none">
+          <ion-label class="item-font-color" floating>Email</ion-label>
           <ion-input type="text"
                      required
-                     [(ngModel)]="user.email">
+                     name="email"
+                     [(ngModel)]="user.email"
+                     class="background-blur-white">
           </ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-item>
-          <ion-label floating>Password</ion-label>
+        <ion-item class="item-bg-none">
+          <ion-label style="color: yellow" floating>Password</ion-label>
           <ion-input type="password"
                      required
-                     [(ngModel)]="user.password">
+                     name="password"
+                     [(ngModel)]="user.password"
+                     class="background-blur-black">
           </ion-input>
         </ion-item>
       </ion-col>
@@ -50,7 +55,7 @@
           <button ion-button
                   block
                   color="primary" outline
-                  (click)="logIn(user)">
+                  (click)="logIn(formLogIn)">
             Log in
           </button>
       </ion-col>
@@ -59,10 +64,11 @@
       <ion-col>
           <button ion-button
                   block
-                  color="dark" outline
+                  color="secondary" outline
                   (click)="signUp()">
             Sign up
           </button>
       </ion-col>
     </ion-row>
+  </form>
 </ion-content>

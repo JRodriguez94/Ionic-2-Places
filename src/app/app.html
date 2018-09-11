@@ -6,10 +6,13 @@
   </ion-header>
   <ion-content>
     <ion-list>
-      <button ion-item (click)="navigationPage(homePage)">Home</button>
-      <button ion-item (click)="navigationPage(loginPage)">Log In</button>
-      <button ion-item (click)="navigationlogOut()">Log Out</button>
+      <button ion-item *ngIf="userIsConnected"
+              (click)="navigationPage(homePage)">Home</button>
+      <button ion-item *ngIf="!userIsConnected"
+              (click)="navigationPage(loginPage)">Log In</button>
+      <button ion-item *ngIf="userIsConnected"
+              (click)="navigationlogOut()">Log Out</button>
     </ion-list>
   </ion-content>
 </ion-menu>
-<ion-nav [root]="rootPage" #content></ion-nav>
+<ion-nav [root]="loginPage" #content></ion-nav>

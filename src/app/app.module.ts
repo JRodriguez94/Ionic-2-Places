@@ -21,6 +21,7 @@ import { RegisterPage } from "../pages/register-page/register-page";
 
 import {PlacesService} from "../services/places.service";
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { AuthenticationService } from "../services/authentication.service";
 
 import {AngularFireModule} from "angularfire2";
 import { AngularFireAuthModule } from "angularfire2/auth";
@@ -59,7 +60,7 @@ import {FIREBASE_CONFIG} from "./app.firebase.config";
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Geolocation, Camera, PlacesService, SocialSharing, File
+    Geolocation, Camera, PlacesService, SocialSharing, File, AuthenticationService
   ]
 })
 export class AppModule {}

@@ -14,13 +14,15 @@
 
 
 <ion-content>
+  <form #formRegist="ngForm">
     <ion-row>
       <ion-col>
         <ion-item>
           <ion-label floating>Email</ion-label>
           <ion-input type="text"
                      required
-                     [(ngModel)]="user.email">
+                     name="email"
+                     ngModel>
           </ion-input>
         </ion-item>
       </ion-col>
@@ -31,7 +33,8 @@
           <ion-label floating>Password</ion-label>
           <ion-input type="password"
                      required
-                     [(ngModel)]="user.password">
+                     name="password"
+                     ngModel>
           </ion-input>
         </ion-item>
       </ion-col>
@@ -41,9 +44,10 @@
         <button ion-button
                 block
                 color="dark" outline
-                (click)="signUp(user)">
+                (click)="regist(formRegist)">
           Sign up
         </button>
       </ion-col>
     </ion-row>
+  </form>
 </ion-content>
