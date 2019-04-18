@@ -4,7 +4,7 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<!--<ion-header>
 
   <ion-navbar color="dark">
     <ion-buttons left>
@@ -19,10 +19,13 @@
     <ion-title>Log In</ion-title>
   </ion-navbar>
 
-</ion-header>
+</ion-header>-->
 
 
 <ion-content class="bg-img">
+  <ion-label class="title topSpace">
+    Places
+  </ion-label>
   <form #formLogIn="ngForm">
     <ion-row>
       <ion-col>
@@ -40,7 +43,7 @@
     <ion-row>
       <ion-col>
         <ion-item class="item-bg-none">
-          <ion-label style="color: yellow" floating>Password</ion-label>
+          <ion-label floating>Password</ion-label>
           <ion-input type="password"
                      required
                      name="password"
@@ -54,6 +57,7 @@
       <ion-col>
           <button ion-button
                   block
+                  round
                   color="primary" outline
                   (click)="logIn(formLogIn)">
             Log in
@@ -64,6 +68,7 @@
       <ion-col>
           <button ion-button
                   block
+                  round
                   color="secondary" outline
                   (click)="signUp()">
             Sign up

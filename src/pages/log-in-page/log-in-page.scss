@@ -6,27 +6,27 @@ page-log-in-page {
   }
   .bg-img
   {
-    background-image: url('../../assets/imgs/bg2.png');
+    background-color: white;
+   /* background-image: url('../../assets/imgs/bg2.png');
     background-repeat: no-repeat;
     background-position: center;
     //background-size: contain;
     background-size: auto;
-    //filter: blur(2px);
+    //filter: blur(2px);*/
   }
   .item-bg-none
   {
     background: none;
   }
-  .background-blur-white
+
+  .topSpace
   {
-    background:rgba(255,255,255,0.18);
+    margin-top: 5em;
   }
-  .background-blur-black
-  {
-    background:rgba(0,0,0,0.18);
+
+  .title {
+    text-align: center;
+    font-size: 2em
   }
-  .item-font-color
-  {
-    color: aqua;
-  }
+
 }
